@@ -1,0 +1,78 @@
+{
+  "name": "ime-cursor",
+  "displayName": "IME Cursor",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ime-cursor.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "configuration": {
+      "title": "IME Cursor",
+      "properties": {
+        "imeCursor.activeColor": {
+          "type": "string",
+          "default": "#ee3f4d",
+          "description": "When it is acitve, the cursor color will be this color"
+        },
+        "imeCursor.activeStyle": {
+          "type": "number",
+          "default": "block",
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "enumDescriptions": [
+            "line",
+            "block",
+            "underline",
+            "line-thin",
+            "line-thick",
+            "line-dotted",
+            "line-dashed"
+          ],
+          "description": "When it is acitve, the cursor style will be this style"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.86.0",
+    "@types/glob": "^8.0.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.33.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.4",
+    "@vscode/test-electron": "^2.2.2"
+  }
+}
